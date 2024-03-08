@@ -26,7 +26,7 @@ namespace NewXp
         public override Version Version { get; } = new Version(1, 0, 0);
         public override void OnDisabled()
         {
-            base.OnDisabled();
+            base.OnDisabled(); 
         }
         public override void OnEnabled()
         {     Log.Warn(dic); 
