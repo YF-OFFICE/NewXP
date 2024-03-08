@@ -1,4 +1,5 @@
-﻿using CommandSystem.Commands.RemoteAdmin.ServerEvent;
+~~
+    using CommandSystem.Commands.RemoteAdmin.ServerEvent;
 using Exiled.API.Extensions;
 using Exiled.API.Features;
 using Exiled.API.Interfaces;
@@ -144,3 +145,4 @@ namespace TestingPlugin
         }
     }
 }
+~~
