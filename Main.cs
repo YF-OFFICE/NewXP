@@ -29,7 +29,7 @@ namespace NewXp
             base.OnDisabled();
         }
         public override void OnEnabled()
-        {     Log.Warn(dic);
+        {     Log.Warn(dic); 
             base.OnEnabled();
         }
 
