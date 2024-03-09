@@ -30,6 +30,16 @@
 
 本项目由[YFOFFICE](https://github.com/YF-OFFICE)独家打造 ！！！！！！！
 
+### 开发者
+
+感谢以下开发者对 NoneBot2 作出的贡献：
+
+<a href="https://github.com/YF-OFFICE/NewXP/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=YF-OFFICE/NewXP&max=1000" alt="contributors" />
+</a>
+
+
+
 ==================我是底线=============
 
 
