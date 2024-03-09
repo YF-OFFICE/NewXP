@@ -1,5 +1,8 @@
 =============NewXP`SCPSL插件=============
 
+<a href="https://github.com/YF-OFFICE/NewXP/releases"><img src="https://img.shields.io/github/v/release/YF-OFFICE/NewXP?display_name=tag&style=for-the-badge&logo=gitbook&label=Release" href="https://github.com/YF-OFFICE/NewXP/releases" alt="GitHub Releases"></a>
+<img src="https://img.shields.io/github/downloads/YF-OFFICE/NewXP/total?style=for-the-badge&logo=github" alt="Downloads">
+
 本插件运用Ini文件存储玩家经验 自带广播，经验自定义配置，经验倍数功能 
 
 在config里可以修改
