@@ -1,10 +1,13 @@
-﻿using Exiled.API.Features;
+﻿using CommandSystem;
+using Exiled.API.Features;
 using Exiled.API.Interfaces;
 using Exiled.Events.Commands.Reload;
 using Exiled.Events.EventArgs.Player;
 using Exiled.Events.Handlers;
 using NewXp.IniApi;
 using PlayerRoles;
+using PluginAPI.Roles;
+using RemoteAdmin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +22,41 @@ using Server = Exiled.Events.Handlers.Server;
 
 namespace NewXp
 {
+    public class exp: ICommand
+    {
+
+        public string Command { get; } = "exp";
+
+
+        public string[] Aliases { get; } = new string[]
+        {
+            "exp","xp"
+        };
+
+
+        public string Description { get; } = "查询个人等级及经验";
+
+        public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
+        {
+            Player player = Player.Get(sender);
+
+            if (player == null)
+            {
+                response = "null";
+                return false;
+            }
+            else if (Plugin.IniFilea.Section("LvSave").Get(player.UserId) != null)
+            {
+                response = $"====[XP系统*查询成功√]====\n你的经验为{Plugin.IniFilea.Section("XpSave").Get(player.UserId)}/{Plugin.XpToV(player.UserId)}\n目前等级为:{Plugin.IniFilea.Section("LvSave").Get(player.UserId)}\n============";
+                return true;
+            }
+            else
+            {
+                response = "null";
+                return false;
+            }
+        }
+    }
     public class Config : IConfig
     {
         [Description("Plugin true/false")]
@@ -39,6 +77,8 @@ namespace NewXp
         public int Point { get; set; } = 1;
         //可选参数xp为经验,tolv为升下一级所需经验,lv为目前等级 可以自己加color代码
         public string JoinText { get; set; } = "欢迎来到本服务器\n $你目前经验为xp/tolv 等级为lv \n祝你玩得开心";
+        //是否打开exp指令
+        public bool OpenCommand { get; set; } = true;
 
     }
     public class Plugin : Plugin<Config>
@@ -68,7 +108,10 @@ namespace NewXp
 
             }
             IniFilea = new IniFile(dic);
-
+            if (Config.OpenCommand)
+            {
+                QueryProcessor.DotCommandHandler.RegisterCommand(new exp());
+            }
             Log.Info("插件存储连接成功");
             Play.Died += die;
             Play.Joined += Join;
