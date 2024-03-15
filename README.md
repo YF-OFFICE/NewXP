@@ -22,6 +22,8 @@
    public int Point { get; set; } = 1;
    //可选参数xp为经验,tolv为升下一级所需经验,lv为目前等级 可以自己加color代码
    public string JoinText { get; set; } = "欢迎来到本服务器\n $你目前经验为xp/tolv 等级为lv \n祝你玩得开心";
+   //是否打开exp指令
+   public bool OpenCommand { get; set; } = true;
 ~~~~
 
 安装教程:下载[最新版本dll](https://github.com/YF-OFFICE/XpSystem/releases)丢到ex plugin文件夹重启服务器即可 ！！！！！！So easy
